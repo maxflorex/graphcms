@@ -1,5 +1,9 @@
 import React from 'react'
 import { gql, GraphQLClient } from 'graphql-request'
+import Section from '../components/Section'
+import Navbar from '../components/Navbar'
+import Tags from '../components/Tags'
+import UnSeen from '../components/UnSeen'
 
 export const getStaticProps = async () => {
 
@@ -12,7 +16,7 @@ export const getStaticProps = async () => {
   })
 
 
-  const query = gql`
+  const videosQuery = gql`
   query {
     videos {
       createdAt,
@@ -31,33 +35,86 @@ export const getStaticProps = async () => {
     }
   }
 `
-  const data = await graphQLCLient.request(query)
+
+  const accountQuery = gql`
+  query {
+    account(where: {
+      id: "cl31fzo04gmog0biq38mvmnwx" }) {
+      username
+      avatar {
+        url
+      }
+    }
+  }
+`
+
+  const platformQuery = gql`
+  query {
+    platforms {
+      id,
+      title,
+      slug,
+      logo {
+        url
+      }
+    }
+  }
+`
+
+
+  const data = await graphQLCLient.request(videosQuery)
   const videos = data.videos
+  const accountData = await graphQLCLient.request(accountQuery)
+  const account = accountData.account
+  const platformsData = await graphQLCLient.request(platformQuery)
+  const platform = platformsData.platforms
 
   return {
     props: {
       videos,
+      account,
+      platform
     }
   }
 }
 
-const Home = ({ videos }) => {
+const Home = ({ videos, account, platform }) => {
+
 
   // GET RANDOM IMAGE
   const randomVideo = (videos) => {
     return videos[Math.floor(Math.random() * videos.length)]
   }
 
-  console.log(videos)
+  // FILTER VIDEOS
+  const filterVideos = (videos, genre) => {
+    return videos.filter((video) => video.tags.includes(genre))
+  }
+
+  // SEEN VIDEOS
+  const unSeenVideos = (videos) => {
+    return videos.filter(video => video.seen == false || video.seen == null)
+  }
+
   return (
     <>
+      <Navbar account={account} />
       <div className='app'>
         <div className="main-video">
           <img src={randomVideo(videos).thumbnail.url} alt={randomVideo(videos).title} />
         </div>
+        <Tags videos={videos} platform={platform} />
       </div>
-      <div className="video-feed">
-        
+      <UnSeen genre={'Recommended for you'} videos={unSeenVideos(videos)} />
+      <div className="grid grid-cols-6">
+        <Section genre={'Family'} videos={filterVideos(videos, 'Family')} />
+        <Section genre={'Thriller'} videos={filterVideos(videos, 'Thriller')} />
+        <Section genre={'Clasic'} videos={filterVideos(videos, 'Classic')} />
+        <Section genre={'Star Wars'} videos={filterVideos(videos, 'Star Wars')} />
+        <Section genre={'Disney'} videos={filterVideos(videos, 'Disney')} />
+        <Section genre={'National Geographic'} videos={filterVideos(videos, 'National Geographic')} />
+        <Section genre={'Marvel'} videos={filterVideos(videos, 'Marvel')} />
+        <Section genre={'Pixar'} videos={filterVideos(videos, 'Pixar')} />
       </div>
     </>
   )
