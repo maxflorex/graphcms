@@ -34,11 +34,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/platform/[slug].js"
-    ],
-    "/video/[slug]": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/video/[slug].js"
     ]
   },
   "ampFirstPages": []

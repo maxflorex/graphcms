@@ -8,7 +8,7 @@ const UnSeen = ({ genre, videos }) => {
             <div className="p-8">
                 <div className="grid grid-cols-2 md:grid-cols-4 xl-grid-cols-6 2xl:grid-cols-6 gap-4 xl:gap-8 rounded-full">
                     {videos.map((video) => (
-                        <a key={video.id} href={`/video/${video.slug}`}>
+                        <a key={video.id} href={`/video/${video.slug}`} className='w-full'>
                             <Card
                                 thumbnail={video.thumbnail}
                                 title={video.title}

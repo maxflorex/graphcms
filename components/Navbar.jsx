@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import React from 'react';
 import disneyLogo from '../public/disney.svg';
 
@@ -20,10 +19,11 @@ const Navbar = ({ account }) => {
                     <h3 className="text-normal italic">
                         Welcome, {account.username}
                     </h3>
-                    <img
+                    <Image
                         src={account.avatar.url}
                         alt="Member"
-                        className="w-16 h-16"
+                        width={50}
+                        height={50}
                     />
                 </div>
             </div>
