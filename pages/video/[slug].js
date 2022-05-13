@@ -93,7 +93,7 @@ const Video = ({ video }) => {
 
             {
                 watching && (<>
-                    <video width={'100%'} controls className='max-h-[85vhclear
+                    <video width={'100%'} controls className='max-h-[85vh]
                     ]' >
                         <source src={video.mp4.url} type='video/mp4' />
                     </video>

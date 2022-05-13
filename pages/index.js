@@ -4,6 +4,7 @@ import Section from '../components/Section'
 import Navbar from '../components/Navbar'
 import Tags from '../components/Tags'
 import UnSeen from '../components/UnSeen'
+import Head from 'next/head'
 
 export const getStaticProps = async () => {
 
@@ -98,6 +99,9 @@ const Home = ({ videos, account, platform }) => {
 
   return (
     <>
+      <Head>
+        <link rel="shortcut icon" href="/movie.ico" />
+      </Head>
       <Navbar account={account} />
       <div className='w-full'>
         <div className="w-full mb-16 overflow-hidden h-[50vh]">

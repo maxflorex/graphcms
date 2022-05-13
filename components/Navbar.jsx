@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const Navbar = ({ account }) => {
     return (
-        <div className=" absolute z-[9999] bg-gradient-to-b from-black/60 w-full overflow-hidden">
+        <div className=" absolute z-[9999] bg-gradient-to-b from-black/60 w-full">
             <div className="flex justify-between px-8">
                 <Link href="/">
                     <Image
@@ -13,6 +13,7 @@ const Navbar = ({ account }) => {
                         alt="Disney Logo"
                         width={120}
                         height={120}
+                        className='cursor-pointer hover:scale-105 duration-500'
                     />
                 </Link>
                 <div className="flex gap-2 items-center">

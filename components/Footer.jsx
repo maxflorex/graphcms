@@ -4,7 +4,7 @@ import Link from 'next/link';
 const Footer = () => {
     return (
         <footer className="absolute bottom-0 p-8 flex w-full justify-between">
-            <Link to="/">
+            <Link href="/">
                 <h1 className='hover:bg-white/20 hover:scale-110 duration-300 p-2 rounded-md cursor-pointer'>Back Home 🏠</h1>
             </Link>
             <h1>
