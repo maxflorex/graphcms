@@ -99,22 +99,19 @@ const Home = ({ videos, account, platform }) => {
   return (
     <>
       <Navbar account={account} />
-      <div className='app'>
-        <div className="main-video">
-          <img src={randomVideo(videos).thumbnail.url} alt={randomVideo(videos).title} />
+      <div className='w-full'>
+        <div className="w-full mb-16 overflow-hidden h-[50vh]">
+          <img src={randomVideo(videos).thumbnail.url} alt={randomVideo(videos).title} className='w-full h-full object-cover blur-sm scale-110 overflow-hidden' />
         </div>
         <Tags videos={videos} platform={platform} />
       </div>
       <UnSeen genre={'Recommended for you'} videos={unSeenVideos(videos)} />
-      <div className="grid grid-cols-6">
-        <Section genre={'Family'} videos={filterVideos(videos, 'Family')} />
-        <Section genre={'Thriller'} videos={filterVideos(videos, 'Thriller')} />
-        <Section genre={'Clasic'} videos={filterVideos(videos, 'Classic')} />
-        <Section genre={'Star Wars'} videos={filterVideos(videos, 'Star Wars')} />
-        <Section genre={'Disney'} videos={filterVideos(videos, 'Disney')} />
-        <Section genre={'National Geographic'} videos={filterVideos(videos, 'National Geographic')} />
-        <Section genre={'Marvel'} videos={filterVideos(videos, 'Marvel')} />
-        <Section genre={'Pixar'} videos={filterVideos(videos, 'Pixar')} />
+      <div className="grid grid-cols-1 lg:grid-cols-2 overflow-hidden p-8 gap-8">
+        <Section genre={'Family'} videos={filterVideos(videos, 'family')} />
+        <Section genre={'Adventure'} videos={filterVideos(videos, 'adventure')} />
+        <Section genre={'Heroic'} videos={filterVideos(videos, 'hero')} />
+        <Section genre={'Star Wars'} videos={filterVideos(videos, 'starwars')} />
+        <Section genre={'Disney'} videos={filterVideos(videos, 'disney')} />
       </div>
     </>
   )

@@ -5,8 +5,8 @@ import disneyLogo from '../public/disney.svg';
 
 const Navbar = ({ account }) => {
     return (
-        <div className=" absolute z-[9999] bg-gradient-to-b from-black/60">
-            <div className="flex justify-between px-8 w-[100vw] ">
+        <div className=" absolute z-[9999] bg-gradient-to-b from-black/60 w-full overflow-hidden">
+            <div className="flex justify-between px-8">
                 <a href="/">
                     {' '}
                     <Image
@@ -23,7 +23,7 @@ const Navbar = ({ account }) => {
                     <img
                         src={account.avatar.url}
                         alt="Member"
-                        className="avatar"
+                        className="w-16 h-16"
                     />
                 </div>
             </div>

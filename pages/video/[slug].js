@@ -76,7 +76,7 @@ const Video = ({ video }) => {
             {!watching && <>
                 < img src={video.thumbnail.url} alt="Video picture" className='absolute top-0 w-full h-full object-cover opacity-20 blur' />
 
-                <div div className='relative flex flex-col justify-center h-[100vh] w-1/2 p-32'>
+                <div div className='relative flex flex-col justify-center h-[100vh] w-full lg:w-1/2 p-32'>
                     <h1 className='text-4xl font-semibold pb-8'>{video.title}</h1>
                     <div className="flex gap-4 py-4">
                         {video.tags.map((data, index) => (
