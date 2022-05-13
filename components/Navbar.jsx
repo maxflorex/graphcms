@@ -7,8 +7,7 @@ const Navbar = ({ account }) => {
     return (
         <div className=" absolute z-[9999] bg-gradient-to-b from-black/60 w-full overflow-hidden">
             <div className="flex justify-between px-8">
-                <Link to="/">
-                    {' '}
+                <Link href="/">
                     <Image
                         src={disneyLogo}
                         alt="Disney Logo"

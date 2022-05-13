@@ -93,11 +93,12 @@ const Video = ({ video }) => {
 
             {
                 watching && (<>
-                    <video width={'100%'} controls>
+                    <video width={'100%'} controls className='max-h-[85vhclear
+                    ]' >
                         <source src={video.mp4.url} type='video/mp4' />
                     </video>
                     <div className='text-center font-semibold text-2xl px-3 py-2 cursor-pointer mt-16 hover:text-amber-500 duration-300'
-                    onClick={() => setWatching(!watching)}
+                        onClick={() => setWatching(!watching)}
                     >Go back 🏃</div>
                 </>
                 )

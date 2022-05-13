@@ -4,6 +4,7 @@ import Card from '../../components/Card'
 import Footer from '../../components/Footer'
 import Navbar from '../../components/Navbar'
 import PlatformHero from '../../components/PlatformHero'
+import Link from 'next/link';
 
 
 export const getServerSideProps = async (pageContext) => {
