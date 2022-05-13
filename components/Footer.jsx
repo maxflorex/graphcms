@@ -9,7 +9,7 @@ const Footer = () => {
             </Link>
             <h1>
                 Made with ❤️ by
-                <a href="https://maxflores.dev" target="_blank" className='hover:bg-white/20 hover:scale-110 duration-300 p-2 rounded-md cursor-pointer'>
+                <a href="https://maxflores.dev" target="_blank" rel="noreferrer" className='hover:bg-white/20 hover:scale-110 duration-300 p-2 rounded-md cursor-pointer'>
                     Max Flores
                 </a>
             </h1>
